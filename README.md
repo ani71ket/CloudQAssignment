@@ -1,14 +1,38 @@
-# Automated Testing using Selenium
+# Selenium-Based Automated Form Field Testing in C#
 
-## Description
-C# program to test automatically the first name, last name and mobile field in the web app using selenium.
+## Overview
+This project demonstrates how to build a robust automated testing solution in C# using Selenium WebDriver. The primary objective is to validate key input fields within a web application form, ensuring they function correctly even when the DOM structure or styling changes over time.
 
-## Problem Statement
-Write a program or algorithm using C# and Selenium to automatically test any three fields on that page.
-The main goal of your program is to make sure it still works even if the position or any other properties of the HTML elements for those three fields change.
+## Objective
+Develop a C# application utilizing Selenium to verify the functionality of three specific input fields on a web form. The test should remain stable regardless of changes to the layout, positioning, or styling of the HTML elements being tested.
 
-## Approach
+## Testing Strategy
+The automation script is designed to interact with the form hosted at:
+`https://app.cloudqa.io/home/AutomationPracticeForm`
 
-I used `Selenium.Chrome` as a web driver and `Selenium` package for this project. As a first step, I setup the testing environment in chrome by navigating to the url `https://app.cloudqa.io/home/AutomationPracticeForm`.
+The targeted fields include:
+- First Name
+- Last Name
+- Mobile Number
 
-I choose three fields such as first name, last name and mobile number to test in the web page. I defined separate `Test Field`, the element can be found using their name in the webpage. For example, first name input element can be found with the name `First Name` and it is similar to other fields. Once the field is found, I send keys to the input field, then in the next line I will check whether the expected value is written on the input field or not. If the expected and observed values are different the test fail otherwise it pass.
+Each field is located dynamically using its `name` attribute, which ensures the script remains resilient to UI modifications. 
+
+### Steps Performed:
+1. Initialize the Chrome WebDriver using the `Selenium.Chrome` package.
+2. Navigate to the form URL.
+3. Locate each form field based on its `name` attribute.
+4. Input test data into each field.
+5. Retrieve the current value of each input element.
+6. Compare the entered value against the expected input.
+7. Log the test result (pass/fail) based on the match outcome.
+
+This method allows the test to maintain reliability without relying on hardcoded element positions, making it suitable for regression testing and continuous integration.
+
+## Tools & Technologies
+- **Programming Language:** C#
+- **Testing Framework:** Selenium WebDriver
+- **Browser Driver:** ChromeDriver
+- **Target Platform:** Web-based form UI
+
+## Conclusion
+This project showcases a simple yet effective way to automate and verify form input fields using Selenium in C#. By targeting attributes like `name` instead of relying on CSS or XPath selectors, the tests are resilient to structural changes in the DOM, providing a maintainable approach for future scalability and updates.
